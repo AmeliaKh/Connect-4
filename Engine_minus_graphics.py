@@ -157,44 +157,6 @@ class ConnectFour:
         return self.rewards[n_of_tokens_in_row - 2]
 
     def score_list(self,list):
-        #take list and score it using rewards, ONLY considers 3 in a rows good if there is no gap between them!
-        white_ = 0
-        brown_ =0
-        n_of_browns_in_row = 1
-        n_of_whites_in_row = 1
-        for (index, token) in enumerate(list):
-            if index+1<len(list):
-                next_token = list[index+1]
-                if token == 0:
-                    pass
-
-                elif next_token == token:
-                    if token == 1:
-                        n_of_whites_in_row+=1
-
-                    if token == 2:
-                        n_of_browns_in_row +=1
-
-                elif next_token != token and (n_of_browns_in_row>1 or n_of_whites_in_row>1):
-                    if token == 1:
-                        white_ += self.rewards2[n_of_whites_in_row - 1]
-                        n_of_whites_in_row = 1
-                    elif token == 2:
-                        brown_ += self.rewards[n_of_browns_in_row - 1]
-                        n_of_browns_in_row = 1
-
-            #if index is going off screen (ie not a token and not on board) if there is a row of browns or whites: add its score!
-            elif n_of_browns_in_row>1 or n_of_whites_in_row>1:
-                if token == 1:
-                    white_+= self.rewards2[n_of_whites_in_row - 1]
-                    n_of_whites_in_row = 1
-                elif token == 2:
-                    brown_+= self.rewards[n_of_browns_in_row - 1]
-                    n_of_browns_in_row = 1
-
-        return(white_,brown_)
-
-    def score_list2(self,list):
         #JUST CHECKS FOR  - 4 - IN A ROW
         white_ = 0
         brown_ = 0
@@ -217,14 +179,14 @@ class ConnectFour:
         for row in range(self.field_height):
             row_list = self.make_row_list(row)
             if sum(row_list) >=4:
-                white1,brown1 = self.score_list2(row_list)
+                white1,brown1 = self.score_list(row_list)
                 final_white += white1
                 final_brown += brown1
 
         #Check columns
         for col in self.field_state:
             if sum(col) >= 4:
-                white2,brown2 = self.score_list2(col)
+                white2,brown2 = self.score_list(col)
                 final_white +=white2
                 final_brown +=brown2
 
@@ -239,7 +201,7 @@ class ConnectFour:
         #Check right diagonals
         for coordinates in right_diagonal_zipped:
             right_diagonal_list = self.make_diagonal_right_list(coordinates)
-            white3,brown3 = self.score_list2(right_diagonal_list)
+            white3,brown3 = self.score_list(right_diagonal_list)
             final_white+=white3
             final_brown+=brown3
             # coordinates is just the coordinate of each of the starting points of each diagonal
@@ -250,7 +212,7 @@ class ConnectFour:
         #Check left diagonals
         for coordinates in left_diagonal_zipped:
             left_diagonal_list = self.make_diagonal_left_list(coordinates)
-            white4,brown4 = self.score_list2(left_diagonal_list)
+            white4,brown4 = self.score_list(left_diagonal_list)
             final_white+=white4
             final_brown+=brown4
 
