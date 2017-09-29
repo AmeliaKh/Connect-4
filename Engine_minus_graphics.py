@@ -149,37 +149,15 @@ class ConnectFour:
                         self.set_winner()
 
 
-
-
-
-        if self.score_brown>self.score_white:
-            winner = 'b'
-        elif self.score_brown<self.score_white:
-            winner = 'w'
-        else: winner = 'none!'
         print('SCORES  WHITE:  ', self.score_white, ' BROWN:  ', self.score_brown)
         print('AVERAGE TIME TAKEN  WHITE:  ',(time_w/n_moves_w),' BROWN:  ',(time_b/n_moves_b))
-
-        file = open("times_wins.txt", "a")
-        file.write("winner:")
-        file.write(winner)
-        file.write("  time w : b --   ")
-
-        file.write(str(round((time_w/n_moves_w),4)))
-        file.write(' : ')
-        file.write(str(round((time_b/n_moves_b),4)))
-        file.write('              ')
-
-
-
-        file.close()
 
 
     def calculate_points(self,n_of_tokens_in_row):
         return self.rewards[n_of_tokens_in_row - 2]
 
     def score_list(self,list):
-        #take list and score it using REWARDS!! ONLY considers 3 in a rows good if there is no gap between them!!
+        #take list and score it using rewards, ONLY considers 3 in a rows good if there is no gap between them!
         white_ = 0
         brown_ =0
         n_of_browns_in_row = 1
@@ -232,7 +210,7 @@ class ConnectFour:
         return (white_,brown_)
 
     def score(self):
-        #ONLY gives points for - 4 - in a row!!
+        #ONLY gives points for - 4 - in a row
         final_white = 0
         final_brown=0
         #Check rows
@@ -298,7 +276,6 @@ class ConnectFour:
         white_ = 0
         brown_ = 0
         for start_index in range(len(list)-4+1):
-            #ONLY WORKS FOR WHITE!!
             #For each row of 4 tokens -> if all tokens are white or none -> count up how many whites there are
             #                                                          -> score using rewards at the top
             items = [list[start_index], list[start_index + 1], list[start_index + 2], list[start_index + 3]]
