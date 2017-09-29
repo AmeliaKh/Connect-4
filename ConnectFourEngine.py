@@ -196,7 +196,7 @@ class ConnectFour:
         return self.rewards[n_of_tokens_in_row - 2]
 
     def score_list(self,list):
-        #take list and score it using REWARDS!! ONLY considers 3 in a rows good if there is no gap between them!!
+        #take list and score it using rewards, ONLY considers 3 in a rows good if there is no gap between them!
         white_ = 0
         brown_ =0
         n_of_browns_in_row = 1
@@ -315,7 +315,6 @@ class ConnectFour:
         white_ = 0
         brown_ = 0
         for start_index in range(len(list)-4+1):
-            #ONLY WORKS FOR WHITE!!
             #For each row of 4 tokens -> if all tokens are white or none -> count up how many whites there are
             #                                                          -> score using rewards at the top
             items = [list[start_index], list[start_index + 1], list[start_index + 2], list[start_index + 3]]
