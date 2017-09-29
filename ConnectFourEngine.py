@@ -180,27 +180,10 @@ class ConnectFour:
             pygame.display.update()
             pygame.time.wait(40)
 
-        if self.score_brown>self.score_white:
-            winner = 'b'
-        elif self.score_brown<self.score_white:
-            winner = 'w'
-        else: winner = 'none!'
         print('SCORES  WHITE:  ', self.score_white, ' BROWN:  ', self.score_brown)
         print('AVERAGE TIME TAKEN  WHITE:  ',(time_w/n_moves_w),' BROWN:  ',(time_b/n_moves_b))
 
-        file = open("times_wins.txt", "a")
-        file.write("winner:")
-        file.write(winner)
-        file.write("  time w : b --   ")
-
-        file.write(str(round((time_w/n_moves_w),4)))
-        file.write(' : ')
-        file.write(str(round((time_b/n_moves_b),4)))
-        file.write('              ')
-
-
-
-        file.close()
+       
         # Once the game is finish, simply wait for the `QUIT` event
         while True:
             event = pygame.event.wait()
