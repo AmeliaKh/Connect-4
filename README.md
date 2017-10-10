@@ -8,3 +8,4 @@ From the graphs it is clear that as the number of plies searched through by each
 
 In a tournament I would use the Deep AI with a ply of 4. This is because the Deep AI is much faster than the α-β and Minimax algorithms which would make it better for competitive games. I would use a max depth of 4 as the data recorded suggests that a larger ply of 5 would not significantly increase the Deep AI’s winning rate while more than halving its speed.
 
+To play the game run ConnectFourAIvsHuman.py
