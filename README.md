@@ -1,6 +1,6 @@
 # Connect-4
 
-[![DEMO691d58afa75a74d6.gif](https://gifyu.com/images/DEMO691d58afa75a74d6.gif)](https://gifyu.com/image/M6Q9)
+[![DEMO691d58afa75a74d6.gif](https://gifyu.com/images/DEMO691d58afa75a74d6.gif)](https://gifyu.com/image/wOvq)
 
 I have developed three AIs: Minimax, α-β and Deep. Deep is optimised by iterative deepening in addition to α-β pruning. I recorded my data by playing each AI against another AI with both of their first two moves being generated randomly in order to get a large range of different outcomes. When recording this data the graphics were turned off to increase the program’s speed and prevent crashing.
 
